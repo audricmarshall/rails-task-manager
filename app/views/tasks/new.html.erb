@@ -1,19 +1,24 @@
-<h1>Nouvelle tache</h1>
+<div class="container my-5">
+  <h1 class="mb-4">New Task</h1>
 
-<%= form_with model: @task, local: true, method: :post do |f| %>
-  <div>
-    <%= f.label :title, "Titre" %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :details %><br>
-    <%= f.text_area :details %>
-  </div>
-  <div>
-    <%= f.label :completed, "Complété" %>
-    <%= f.check_box :completed %>
-  </div>
-  <%= f.submit "Créer une tache" %>
-<% end %>
+  <%= form_with model: @task, local: true, method: :post do |f| %>
+    <div class="mb-3">
+      <%= f.label :title, "Title", class: "form-label" %><br>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :details, class: "form-label" %>
+      <%= f.text_area :details, class: "form-control" %>
+    </div>
+    <div class="form-check mb-3">
+      <%= f.check_box :completed, class: "form-check-input", id: "task_completed" %>
+      <%= f.label :completed, "Completed", class: "form-check-label", for: "task_completed" %>
+    </div>
+    <%= f.submit "➕Create task", class: "btn btn-primary" %>
+  <% end %>
 
-<%= link_to "Back to list", tasks_path %>
+  <%= link_to tasks_path, class: "btn btn-outline-secondary mt-3" do %>
+  <i class="fa-solid fa-arrow-left me-2"></i>
+  Back to list
+  <% end %>
+</div>
