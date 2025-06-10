@@ -7,4 +7,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  # création des actions crud from scratch sans resources
+  get 'tasks', to: 'tasks#index' # listes les taches
+  get 'tasks/new', to: 'tasks#new', as: 'new_task' # form création tâche
+  post 'tasks', to: 'tasks#create' # cree la tache dans la db
+  get 'tasks/:id', to: 'tasks#show', as: 'task' # details tâche
+  get 'tasks/:id/edit', to: 'tasks#edit', as: 'edit_task' # form edit
+  patch 'tasks/:id', to: 'tasks#update' # update tache
+  delete 'tasks/:id', to: 'tasks#destroy' # supprime tache
+  root to: 'tasks#index' # root direct vers l'index pour afficher l'appp
+  # et éviter la page rails par défaut
 end
