@@ -13,3 +13,154 @@
  *= require_tree .
  *= require_self
  */
+
+/* global theme */
+ body {
+  background: linear-gradient(135deg, #f6f8fc 0%, #e5ecff 100%);
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: #212529;
+}
+
+/* container && titres */
+.container {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 32px 0 rgba(90,120,255,0.05);
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s;
+}
+
+.container:hover {
+  box-shadow: 0 12px 40px 0 rgba(60, 90, 170, 0.13);
+}
+
+h1, h2, h5 {
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+h1 {
+  color: #4264fb;
+}
+
+/* liste des tasks */
+.list-group-item {
+  border: none;
+  border-radius: 0.7rem !important;
+  margin-bottom: 0.4rem;
+  background: #f3f7ff;
+  transition: background 0.15s, box-shadow 0.2s;
+  font-size: 1.08rem;
+}
+
+.list-group-item:hover {
+  background: #e4edfa;
+  box-shadow: 0 2px 12px 0 rgba(90,120,255,0.04);
+}
+
+.fa-square-check,
+.fa-square {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+.ms-2.fw-bold {
+  font-size: 1.10em;
+  color: #22316c;
+  text-decoration: none;
+}
+
+.ms-2.fw-bold:hover {
+  color: #2b5ff0;
+  text-decoration: underline;
+}
+
+/* Boutons */
+.btn {
+  border-radius: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(80,100,255,0.04);
+  transition: box-shadow 0.2s, background 0.15s;
+}
+
+.btn-outline-danger {
+  border: 1.8px solid #ef476f !important;
+  color: #ef476f !important;
+  background: #fff !important;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:focus {
+  background: #ffe5ed !important;
+  color: #b51737 !important;
+  box-shadow: 0 4px 14px 0 rgba(255,56,86,0.09);
+}
+
+.btn-outline-primary {
+  border: 1.8px solid #4264fb !important;
+  color: #4264fb !important;
+  background: #fff !important;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+  background: #eaf0ff !important;
+  color: #22316c !important;
+}
+
+.btn-outline-secondary {
+  border: 1.8px solid #c0d0e0 !important;
+  color: #22316c !important;
+  background: #fff !important;
+}
+.btn-outline-secondary:hover, .btn-outline-secondary:focus {
+  background: #eef5fd !important;
+  color: #4264fb !important;
+}
+
+/* primary button (add task) */
+
+.btn-primary {
+  background: linear-gradient(90deg, #4264fb 85%, #56b3fa 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 2px 14px 0 rgba(80,120,255,0.11);
+  font-weight: 600;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(90deg, #2952e4 90%, #4296ff 100%) !important;
+  color: #fff !important;
+}
+
+/* formulaires */
+
+.form-label {
+  color: #22316c;
+  font-weight: 500;
+}
+
+.form-control:focus, .form-check-input:focus {
+  border-color: #4264fb;
+  box-shadow: 0 0 6px #4264fb66;
+}
+
+.form-check-input:checked {
+  background-color: #4264fb;
+  border-color: #4264fb;
+}
+
+/* détails des tasks */
+.card {
+  border-radius: 1.1rem;
+  box-shadow: 0 6px 24px 0 rgba(90,120,255,0.07);
+  background: #f9fbff;
+}
+
+/* icones et bottons */
+.btn i {
+  font-size: 1.18em;
+  vertical-align: middle;
+}
+
+/* personnalise le scrollbar sur les differents navigateurs */
+::-webkit-scrollbar-thumb { background: #d1dcfb; border-radius: 6px; }
+::-webkit-scrollbar { background: #f6f8fc; width: 7px; }
