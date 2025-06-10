@@ -1,12 +1,13 @@
 # implemente la class ( commentaire necessaire sinon erreur)
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :update, :destroy] # dry evite de réutiliser
+  # tasks à chaque fois
+
   def index
     @tasks = Task.all
   end
 
-  def show
-    @task = Task.find(params[:id])
-  end
+  def show; end
 
   def new # cree une nouvelle tache avec ce qui est mis dans le form
     @task = Task.new
@@ -21,26 +22,26 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit
-    @task = Task.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @task = Task.find(params[:id])
     if @task.update(task_params)
       redirect_to task_path(@task)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @task = Task.find(params[:id])
     @task.destroy
     redirect_to tasks_path, status: :see_other
   end
 
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def task_params # filtre les param autorisés pour eviter les failles
     params.require(:task).permit(:title, :details, :completed)
