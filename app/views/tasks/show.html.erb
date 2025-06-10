@@ -1,24 +1,26 @@
-<h1>Task details</h1>
+<div class="container my-5">
+  <h1 class="mb-4">Task details</h1>
 
-<div>
-  <strong>Title:</strong>
-  <div><%= @task.title %></div>
-</div>
-
-<div>
-  <strong>Details:</strong>
-  <div><%= @task.details %></div>
-</div>
-
-<div>
-  <strong>Completed:</strong>
-  <div><%= @task.completed ? 'Yes' : 'No' %></div>
-</div>
-
-<div>
-  <%= link_to "Edit this task", edit_task_path(@task) %>
-</div>
-
-<div>
-  <%= link_to "Back to list", tasks_path %>
+  <div class="card p-4 mb-3">
+    <h2 class="h5 mb-3"><%= @task.title %></h2>
+    <p><strong>Details: </strong><%= @task.details %></p>
+    <p>
+      <% if @task.completed %>
+        <i class="fa-solid fa-square-check text-success"></i> Completed
+      <% else %>
+        <i class="fa-regular fa-square"></i> Not completed
+      <% end %>
+    </p>
+  </div>
+    <%= link_to edit_task_path(@task), class: "btn btn-outline-primary me-2" do%>
+    <i class="fa-solid fa-pen-to-square me-2"></i>
+      Edit this task
+    <% end %>
+    <p>
+    <%= link_to tasks_path, class: "btn btn-outline-secondary mt-3" do %>
+    <i class="fa-solid fa-arrow-left me-2"></i>
+     Back to list
+    <% end %>
+    </p>
+  </div>
 </div>

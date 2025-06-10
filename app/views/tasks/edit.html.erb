@@ -1,19 +1,25 @@
-<h1>Edit task</h1>
+<div class="container my-5">
+  <h1 class="mb-4">Edit task</h1>
 
-<%= form_with model: @task, local: true do |f| %>
-  <div>
-    <%= f.label :title, "Title" %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :details %><br>
-    <%= f.text_area :details %>
-  </div>
-  <div>
-    <%= f.label :completed, "Completed" %>
-    <%= f.check_box :completed %>
-  </div>
-  <%= f.submit "Update task" %>
-<% end %>
+  <%= form_with model: @task, local: true do |f| %>
+    <div class="mb-3">
+      <%= f.label :title, "Title", class: "form-label" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :details, nil, class: "form-label" %>
+      <%= f.text_area :details, class: "form-control" %>
+    </div>
+    <div class="form-check mb-3">
+      <%= f.check_box :completed, class: "form-check-input", id: "task_completed" %>
+      <%= f.label :completed, "Completed", class: "form-check-label", for: "task_completed" %>
 
-<%= link_to "Back to list", tasks_path %>
+    </div>
+    <%= f.submit "Update task", class: "btn btn-outline-primary me-2" %>
+    <% end %>
+
+  <%= link_to tasks_path, class: "btn btn-outline-secondary mt-3" do %>
+      <i class="fa-solid fa-arrow-left me-2"></i>
+      Back to list
+      <% end %>
+</div>
